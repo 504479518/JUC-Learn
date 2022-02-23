@@ -1,25 +1,23 @@
 package com.tuling.jucdemo.jmm;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
- * @author  Fox
- *
+ * @author Fox
+ * <p>
  * https://docs.oracle.com/javase/specs/jls/se14/html/jls-17.html#jls-17.5
  */
 public class FinalFieldExample {
     final int x;
-    int y; 
+    int y;
     static FinalFieldExample f;
 
     public FinalFieldExample() {
-        x = 3; 
-        y = 4; 
-    } 
+        x = 3;
+        y = 4;
+    }
 
     static void writer() {
         f = new FinalFieldExample();
-    } 
+    }
 
     static void reader() {
         if (f != null) {

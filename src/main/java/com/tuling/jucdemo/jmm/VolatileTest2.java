@@ -9,8 +9,8 @@ public class VolatileTest2 {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while (true){
-                    if (flag){
+                while (true) {
+                    if (flag) {
                         System.out.println("trun on");
                         flag = false;
                     }
@@ -21,8 +21,8 @@ public class VolatileTest2 {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while (true){
-                    if (!flag){
+                while (true) {
+                    if (!flag) {
                         System.out.println("trun off");
                         flag = true;
                     }

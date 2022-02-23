@@ -1,28 +1,24 @@
 package com.tuling.jucdemo.jmm;
 
 
-import java.util.concurrent.locks.LockSupport;
-
-import com.tuling.jucdemo.factory.UnsafeFactory;
-
 /**
  * @author Fox
- *
+ * <p>
  * -XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly -Xcomp
  * hsdis-amd64.dll
- *  可见性案例
+ * 可见性案例
  */
-public  class VisibilityTest {
+public class VisibilityTest {
     //volatile 两个变量家 storeLoad(指代内存屏障)  JVM内存屏障  ---->  (汇编层面指令)  lock; addl $0,0(%%rsp)
     // lock前缀指令不是内存屏障的指令，但是有内存屏障的效果   缓存失效
-    private  boolean  flag = true;
+    private boolean flag = true;
     // 当Integer的值使用的是final修饰的变量值，当他改变的时候会出发内存屏障
     private int count = 0;
 
     public void refresh() {
         // threadB对flag的写操作会 happens-before threadA对flag的读操作
         flag = false;
-        System.out.println(Thread.currentThread().getName() + "修改flag:"+flag);
+        System.out.println(Thread.currentThread().getName() + "修改flag:" + flag);
     }
 
     public void load() {
@@ -76,9 +72,9 @@ public  class VisibilityTest {
     public static void main(String[] args) throws InterruptedException {
         VisibilityTest test = new VisibilityTest();
 
-        for(int i = 0; i <100; i++){
-            new Thread(()->{
-                while (true){
+        for (int i = 0; i < 100; i++) {
+            new Thread(() -> {
+                while (true) {
                     //System.out.println(Thread.currentThread().getName());
                 }
             }).start();

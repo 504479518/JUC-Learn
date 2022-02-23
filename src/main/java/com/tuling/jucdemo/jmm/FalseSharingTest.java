@@ -30,7 +30,7 @@ public class FalseSharingTest {
         t1.join();
         t2.join();
         // 思考：x,y是线程安全的吗？
-        System.out.println(pointer.x+","+pointer.y);
+        System.out.println(pointer.x + "," + pointer.y);
 
         System.out.println(System.currentTimeMillis() - start);
 
@@ -42,10 +42,10 @@ public class FalseSharingTest {
 class Pointer {
     // 避免伪共享： @Contended +  jvm参数：-XX:-RestrictContended  jdk8支持
     @Contended
-     volatile long x;
+    volatile long x;
     //避免伪共享： 缓存行填充
-     //long p1, p2, p3, p4, p5, p6, p7;
-     volatile long y;
+    //long p1, p2, p3, p4, p5, p6, p7;
+    volatile long y;
 }
 
 

@@ -1,11 +1,11 @@
 package com.tuling.jucdemo.jmm;
 
 /**
- * @author  Fox
+ * @author Fox
  * hsdis-amd64.dll
  * 查看汇编指令
  * -XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly -Xcomp
- *  DCL为什么要使用volatile
+ * DCL为什么要使用volatile
  */
 public class SingletonFactory {
 
