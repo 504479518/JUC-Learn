@@ -17,7 +17,6 @@ public class AtomicIntegerTest {
                     // 原子自增  CAS
                     sum.incrementAndGet();
                     //count++;
-
                 }
             });
             thread.start();
